@@ -1,11 +1,16 @@
+<%- include('partials/head', { title }) %>
 <h1><%= title %></h1>
-<a href="/new">Add a new message</a>
+<a class="new-link" href="/new">Add a new message</a>
 <ul>
   <% messages.forEach(msg => { %>
     <li>
-      <strong><%= msg.user %></strong>: <%= msg.text %> 
-      (<%= msg.added.toLocaleString() %>)
-      <a href="/open">open</a>
+      <strong><%= msg.user %></strong>: <%= msg.text %>
+      <div class="meta">
+        <%= msg.added.toLocaleString() %> &middot; <a href="/open">open</a>
+      </div>
     </li>
   <% }) %>
 </ul>
+</main>
+</body>
+</html>
